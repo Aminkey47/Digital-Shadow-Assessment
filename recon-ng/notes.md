@@ -1,118 +1,76 @@
-# Recon-ng Notes
+# Notes
 
-## Introduction
+## Goal
 
- I explored Recon-ng to learn a more modular approach to Open Source Intelligence (OSINT). Unlike SpiderFoot, which automatically runs multiple data sources, Recon-ng allows the user to choose specific modules depending on the type of information being collected.
-
----
-
-## Setting Up Recon-ng
-
-Recon-ng was already available in Kali Linux, so no manual installation was required.
-
-To start Recon-ng:
-
-```bash
-recon-ng
-```
-
-This launched the interactive workspace where all reconnaissance activities are performed.
+The goal of using Recon-ng was to learn how a modular OSINT framework works and to perform passive reconnaissance against **OWASP**.
 
 ---
 
-## Understanding Workspaces
+## Installation
 
-Recon-ng stores data inside workspaces.
+I installed Recon-ng from source on Ubuntu by cloning the official repository. Since Recon-ng relies on Python packages, I created a virtual environment to keep the installation isolated from the system Python.
 
-To create a workspace:
-
-```bash
-workspaces create digital_shadow
-```
-
-To switch workspaces:
-
-```bash
-workspaces select digital_shadow
-```
-
-Keeping separate workspaces makes investigations organised and prevents mixing results from different targets.
+The installation completed successfully, and I was able to launch the framework from the terminal.
 
 ---
 
 ## Exploring the Marketplace
 
-Recon-ng uses modules that can be installed from its Marketplace.
+One of the first things I learned was that Recon-ng uses a Marketplace where modules can be searched, installed, updated, and removed.
 
-Useful commands:
+This was different from many tools I had used before because Recon-ng starts with very few modules installed. Instead, I had to choose and install only the modules I needed.
 
-```bash
-marketplace search
-marketplace search github
-marketplace install
-```
-
-I learned that Recon-ng is very different from SpiderFoot because it only performs tasks after the required module has been installed and loaded.
+This modular design makes the framework lightweight and flexible.
 
 ---
 
-## Loading Modules
+## Using Modules
 
-Modules are loaded using:
+I explored several reconnaissance modules and learned how to:
 
-```bash
-modules load <module_name>
-```
+- Search for available modules.
+- Install modules from the Marketplace.
+- Load a module.
+- Configure its options.
+- Execute the module.
+- Review the collected results.
 
-Each module performs a different task such as:
-
-- Finding subdomains
-- Looking up hosts
-- Collecting contacts
-- Searching GitHub
-- Gathering DNS information
+Understanding this workflow was one of the most valuable lessons from using Recon-ng.
 
 ---
 
-## Running Reconnaissance
+## Challenges
 
-Before running a module, required options must be configured.
+### Shodan API
 
-Example:
+I wanted to use the Shodan module, but it was initially disabled because the required Python dependency was missing.
 
-```bash
-options list
-options set SOURCE example.com
-run
-```
+After creating a virtual environment and installing the missing package, the module became available.
 
-The SOURCE option tells the module which target to investigate.
+However, I discovered another limitation: my free Shodan account did not include the query credits required by the module. Although authentication was successful, searches returned a **403 Forbidden** error.
+
+This taught me that installing a module is only part of the process—access to third-party services may still be restricted by API plans.
 
 ---
 
-## Challenges I Encountered
+### Censys Authentication
 
-- Understanding the Recon-ng command structure.
-- Learning the difference between workspaces, modules and marketplace.
-- Finding which modules required API keys.
-- Understanding that not every module works without additional configuration.
+I also explored the Censys integration.
+
+After creating a Censys account, I found that the platform now provides Personal Access Tokens instead of the legacy API credentials expected by the Recon-ng module.
+
+Because of this difference, I was unable to configure the module successfully.
+
+This highlighted the importance of checking whether a tool's integrations are compatible with the current versions of external services.
 
 ---
 
 ## Lessons Learned
 
-Recon-ng is more flexible than SpiderFoot because it allows investigators to choose exactly which reconnaissance modules to execute.
+Working with Recon-ng taught me much more than simply running reconnaissance modules.
 
-I also learned:
+I learned how modular frameworks operate, how external APIs integrate with security tools, and how API limitations can affect an investigation.
 
-- How Recon-ng organises investigations using workspaces.
-- How modules are installed and loaded.
-- How reconnaissance results are stored.
-- That some modules require API keys while others work immediately.
-- The importance of modular reconnaissance during OSINT investigations.
+More importantly, I learned that troubleshooting is a normal part of cybersecurity. Solving dependency issues and understanding service limitations were just as valuable as the reconnaissance itself.
 
----
 
-## Reflection
-
-Recon-ng showed me that professional OSINT tools are highly modular. Rather than relying on one large scan, investigators can combine specialised modules to collect targeted intelligence. This provides greater control over the reconnaissance process and produces more focused results.
