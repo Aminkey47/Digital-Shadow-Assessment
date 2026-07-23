@@ -2,7 +2,7 @@
 
 # Digital Shadow Assessment of OWASP
 
-> *"A journey of a thousand miles starts with one step."*
+
 
 ---
 
