@@ -47,5 +47,17 @@ SpiderFoot demonstrated the value of automated OSINT correlation. Rather than co
 This assessment also highlighted the importance of patience when performing large-scale reconnaissance, as comprehensive scans can require significant time to complete and produce very large datasets for analysis.
 
 ---
+## Project Statistics
+
+| Metric | Result |
+|---------|--------|
+| Target | OWASP |
+| Scan Profile | All |
+| Duration | Approximately 7 hours |
+| Total Events | 80,274 |
+| Unique Entities | 31,088 |
+| Export Formats | CSV, GEXF, PNG |
+
+
 
 > This folder documents my first experience using SpiderFoot and serves as a reference for future OSINT investigations and digital footprint assessments.
