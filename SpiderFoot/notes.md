@@ -52,7 +52,6 @@ After the scan completed, I exported the assessment results for documentation an
 The exported files included:
 
 - CSV
-- GEXF
 - Graph images
 
 These exports were saved as evidence of the assessment and are included in this repository.
