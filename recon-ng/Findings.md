@@ -1,27 +1,33 @@
-# Recon-ng Findings
+# Findings
 
 ## Target
 
-The assessment was performed against the target domain used for the Digital Shadow Assessment.
+OWASP (owasp.org)
 
-## Findings
+## Modules Tested
 
-### Domain Discovery
+- Bing Domain Web
+- Shodan Hostname
+- Censys (configuration)
 
-Recon-ng successfully identified the primary target domain.
+## Results
 
-```
-<your-domain>
-```
+### Bing Domain Web
 
-No additional domains, subdomains, contacts, email addresses, or other OSINT artefacts were discovered using the modules executed during this assessment.
+- Successfully executed the module.
+- Returned limited results, primarily search URLs rather than useful host information.
 
-## Shodan Module
+### Shodan
 
-An attempt was made to use the Shodan Hostname Enumerator module to gather additional information.
+- Module installed successfully.
+- Authentication succeeded using the API key.
+- Searches failed because the free OSS plan does not include the required query credits.
 
-The module could not be used successfully because it depended on the `shodan` Python package and access to the Shodan API. During the assessment, these requirements prevented the module from completing successfully, so no results were collected from Shodan.
+### Censys
 
-## Summary
+- Created a Censys account.
+- Modern Personal Access Tokens were incompatible with the Recon-ng module, which expects the legacy API authentication method.
 
-Recon-ng confirmed the existence of the primary target domain. The remaining modules executed did not reveal additional publicly available information for the target.
+## Overall Findings
+
+Recon-ng demonstrated the power of modular OSINT but also highlighted that many advanced modules depend on third-party APIs and paid service tiers.
