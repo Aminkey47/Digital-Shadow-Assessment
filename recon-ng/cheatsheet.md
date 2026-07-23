@@ -1,92 +1,172 @@
-# Recon-ng Cheatsheet
+# Recon-ng Cheat Sheet
 
-## Starting Recon-ng
-
-```bash
-recon-ng
-```
+A quick reference for the commands I used during this project.
 
 ---
 
-## Workspace Management
-
-### List workspaces
+## Launch Recon-ng
 
 ```bash
-workspaces list
-```
-
-### Create a workspace
-
-```bash
-workspaces create digital_shadow
-```
-
-### Select a workspace
-
-```bash
-workspaces select digital_shadow
-```
-
-### Delete a workspace
-
-```bash
-workspaces remove digital_shadow
+./recon-ng
 ```
 
 ---
 
 ## Marketplace
 
-### View all available modules
+Show available modules:
 
 ```bash
 marketplace search
 ```
 
-### Search for specific modules
+Search for a specific module:
 
 ```bash
-marketplace search github
+marketplace search bing
 ```
 
-```bash
-marketplace search whois
-```
-
-```bash
-marketplace search dns
-```
-
-### Install a module
+Install a module:
 
 ```bash
 marketplace install recon/domains-hosts/bing_domain_web
 ```
 
-### Update installed modules
+Remove a module:
 
 ```bash
-marketplace refresh
+marketplace remove <module_name>
 ```
 
 ---
 
-## Modules
+## Workspaces
 
-### Load a module
+Show current workspace:
+
+```bash
+workspaces list
+```
+
+Create a workspace:
+
+```bash
+workspaces create <workspace_name>
+```
+
+Load a workspace:
+
+```bash
+workspaces load <workspace_name>
+```
+
+Delete a workspace:
+
+```bash
+workspaces remove <workspace_name>
+```
+
+---
+
+## Loading Modules
+
+Load a module:
 
 ```bash
 modules load recon/domains-hosts/bing_domain_web
 ```
 
-### Unload the current module
+Display module information:
 
 ```bash
-modules unload
+info
 ```
 
-### Show loaded module information
+Show required options:
+
+```bash
+options list
+```
+
+Set an option:
+
+```bash
+options set SOURCE owasp.org
+```
+
+Run the module:
+
+```bash
+run
+```
+
+Unload the current module:
+
+```bash
+back
+```
+
+---
+
+## API Keys
+
+List configured API keys:
+
+```bash
+keys list
+```
+
+Add an API key:
+
+```bash
+keys add shodan
+```
+
+Remove an API key:
+
+```bash
+keys remove shodan
+```
+
+---
+
+## Database
+
+Show discovered domains:
+
+```bash
+show domains
+```
+
+Show hosts:
+
+```bash
+show hosts
+```
+
+Show contacts:
+
+```bash
+show contacts
+```
+
+Show companies:
+
+```bash
+show companies
+```
+
+---
+
+## Help
+
+General help:
+
+```bash
+help
+```
+
+Help for the current module:
 
 ```bash
 info
@@ -94,106 +174,10 @@ info
 
 ---
 
-## Module Options
-
-### View module options
-
-```bash
-options list
-```
-
-### Set the target
-
-```bash
-options set SOURCE example.com
-```
-
-### Set another option
-
-```bash
-options set <OPTION_NAME> <VALUE>
-```
-
----
-
-## Running Modules
-
-```bash
-run
-```
-
----
-
-## Viewing Collected Data
-
-### Show domains
-
-```bash
-show domains
-```
-
-### Show hosts
-
-```bash
-show hosts
-```
-
-### Show contacts
-
-```bash
-show contacts
-```
-
-### Show companies
-
-```bash
-show companies
-```
-
-### Show credentials
-
-```bash
-show credentials
-```
-
----
-
-## Database
-
-### Display all tables
-
-```bash
-db schema
-```
-
----
-
-## Help
-
-### General help
-
-```bash
-help
-```
-
-### Help for a specific command
-
-```bash
-help workspaces
-```
-
-```bash
-help modules
-```
-
-```bash
-help marketplace
-```
-
----
-
-## Exit Recon-ng
+## Exit
 
 ```bash
 exit
 ```
+
+
